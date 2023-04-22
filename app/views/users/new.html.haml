@@ -1,0 +1,22 @@
+%h2 Register
+
+= form_with(model: @user, url: '/signup', data: { turbo: false }) do |f|
+  = render partial: 'shared/error_messages', locals: { obj: @user }
+
+  .input-group
+    = label_tag :name, 'Name: '
+    = f.text_field :name
+
+  .input-group
+    = label_tag :email, 'Email: '
+    = f.text_field :email
+
+  .input-group
+    = label_tag :password, 'Password: '
+    = f.password_field :password
+
+  .input-group
+    = label_tag :password_confirmation, 'Password Confirmation: '
+    = f.password_field :password_confirmation
+
+  = button_tag 'Submit', type: :submit
