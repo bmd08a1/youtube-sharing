@@ -2,13 +2,21 @@
   display: flex;
   padding: 0 50px;
   justify-content: space-between;
+  border-bottom: 2px solid black;
 
-  .buttons {
+  .content {
     display: flex;
     align-items: center;
 
+    .welcome {
+      margin-right: 10px;
+    }
+
     .button {
       margin-left: 10px;
+      border: 1px solid black;
+      padding: 5px;
+      cursor: pointer;
     }
   }
 }

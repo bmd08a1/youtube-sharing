@@ -1,8 +1,30 @@
 .header
   .title
-    %h1 FunnyMovies
-  .buttons
-    .button
-      %a{ href: '/signup' } Sign up
-    .button
-      %a{ href: '/login' } Login
+    %h1
+      %a{ href: '/posts' } FunnyMovies
+  .content
+    - if logged_in?
+      .welcome
+        = "Welcome #{current_user.name}"
+      .button
+        = link_to 'Share a move', new_posts_path
+      .button.logout
+        = 'Log out'
+    - else
+      .button
+        = link_to 'Sign up', signup_path
+      .button
+        = link_to 'Log in', login_path
+
+:javascript
+  $(document).ready( () => {
+    $('.button.logout').click( () => {
+      $.ajax({
+        url: "#{logout_path}",
+        method: 'DELETE',
+        success: (data, status) => {
+          window.location.href = '/'
+        }
+      })
+    })
+  })

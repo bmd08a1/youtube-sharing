@@ -1,0 +1,12 @@
+%h2 Login
+
+= form_with(scope: :session, url: '/login', data: { turbo: false }) do |f|
+  .input-group
+    = label_tag :email, 'Email: '
+    = f.text_field :email
+
+  .input-group
+    = label_tag :password, 'Password: '
+    = f.password_field :password
+
+  = button_tag 'Log in', type: :submit

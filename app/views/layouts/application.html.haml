@@ -10,5 +10,9 @@
     = javascript_importmap_tags
     = javascript_include_tag 'https://code.jquery.com/jquery-3.6.4.min.js'
   %body
+    - flash.each do |type, message|
+      %div{ class: "flash-#{type}" }
+        = message
     = render partial: 'layouts/header'
-    = yield
+    .content
+      = yield
