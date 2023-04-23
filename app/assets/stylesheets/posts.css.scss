@@ -13,7 +13,7 @@
   }
 }
 
-.search-result {
+.search-result, .posts-container {
   border-top: 1px solid black;
 
   .content {
@@ -52,5 +52,22 @@
       align-items: center;
       height: 60px;
     }
+  }
+}
+
+.posts-container {
+  border-top: unset;
+
+  .description {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+
+  .shared-by {
+    font-size: 20px;
+    margin-top: 8px;
   }
 }

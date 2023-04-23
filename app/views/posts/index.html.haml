@@ -1,0 +1,26 @@
+.posts-container
+  .content
+
+.modal
+  .modal-content
+  .overlay
+
+:javascript
+  var callFilterAPI = (currentPage) => {
+    $.get(
+      "#{filter_posts_path}?page=" + currentPage,
+      (data, status) => {
+        if (status === 'success') {
+          $('.posts-container .content').append(data);
+
+          $('.load-more').click( (e) => {
+            $('.load-more').remove();
+            callFilterAPI(currentPage + 1);
+          })
+        }
+      }
+    )
+  }
+  $(document).ready( () => {
+    callFilterAPI(0);
+  })

@@ -5,4 +5,6 @@ class Post < ApplicationRecord
   validates :title, presence: true
 
   validates :video_id, uniqueness: { scope: :user_id }
+
+  default_scope { order(created_at: :desc) }
 end

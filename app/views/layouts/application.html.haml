@@ -16,3 +16,12 @@
     = render partial: 'layouts/header'
     .content
       = yield
+
+:javascript
+  var clearFlash = () => {
+    $('.flash-success').remove();
+    $('.flash-danger').remove();
+  }
+  $(document).ready( () => {
+    setTimeout(clearFlash, 3000)
+  }

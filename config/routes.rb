@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   get 'posts' => 'posts#index'
   resource :posts
+  get 'filter_posts' => 'posts#filter'
 
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'

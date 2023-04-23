@@ -1,0 +1,17 @@
+.videos
+  - @posts.each do |post|
+    .video{ 'data-video-id' => post.video_id }
+      .thumbnail
+        = image_tag(post.thumbnail_url)
+      .details
+        .title
+          = post.title.html_safe
+        .shared-by
+          = "Shared by: #{post.user.name} (#{post.user.email})"
+        .description
+          %p Description:
+          = post.description.html_safe
+
+- if @can_load_more
+  .load-more
+    Load More
