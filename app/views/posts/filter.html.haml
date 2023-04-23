@@ -1,6 +1,6 @@
 .videos
   - @posts.each do |post|
-    .video{ 'data-video-id' => post.video_id }
+    .video{ 'data-post-id' => post.id }
       .thumbnail
         = image_tag(post.thumbnail_url)
       .details

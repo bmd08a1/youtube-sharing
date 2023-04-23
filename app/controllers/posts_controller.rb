@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  PAGE_LIMIT = 2
+  PAGE_LIMIT = 10
   DEFAULT_PAGE = 0
 
   def index
@@ -13,6 +13,12 @@ class PostsController < ApplicationController
     @can_load_more = (page + 1) * PAGE_LIMIT < total_count
 
     render 'filter', layout: false
+  end
+
+  def show
+    @post = Post.find(params[:id])
+
+    render 'show', layout: false
   end
 
   def new

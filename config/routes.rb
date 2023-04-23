@@ -6,8 +6,7 @@ Rails.application.routes.draw do
   get 'signup' => 'users#new'
   post 'signup' => 'users#create'
 
-  get 'posts' => 'posts#index'
-  resource :posts
+  resources :posts
   get 'filter_posts' => 'posts#filter'
 
   get 'login' => 'sessions#new'

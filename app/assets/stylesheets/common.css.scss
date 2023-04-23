@@ -51,6 +51,10 @@ button {
     position: absolute;
     height: 90vh;
 
+    iframe {
+      max-height: 100%;
+    }
+
     .video-player {
       display: flex;
       align-items: center;

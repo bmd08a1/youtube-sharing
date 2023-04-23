@@ -1,7 +1,7 @@
 .posts-container
   .content
 
-.modal
+.modal.post-details
   .modal-content
   .overlay
 
@@ -17,10 +17,40 @@
             $('.load-more').remove();
             callFilterAPI(currentPage + 1);
           })
+
+          $('.video').click( (e) => {
+            e.stopPropagation();
+            e.preventDefault();
+            var postId = $(e.currentTarget).data('post-id');
+            showDetails(postId);
+          })
+        }
+      }
+    )
+  };
+
+  var showDetails = (postId) => {
+    $.get(
+      "/posts/" + postId,
+      (data, status) => {
+        if (status === 'success') {
+          $('.modal .modal-content').append(data);
+          $('.modal').show();
+
+          $('.modal .close').click( (e) => {
+            $('.modal').hide();
+            $('.modal .modal-content').empty();
+          })
         }
       }
     )
   }
+
   $(document).ready( () => {
     callFilterAPI(0);
+
+    $('.modal .overlay').on('click', () => {
+      $('.modal').hide();
+      $('.modal .modal-content').empty();
+    });
   })

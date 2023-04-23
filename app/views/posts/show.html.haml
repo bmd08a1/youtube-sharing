@@ -1,0 +1,12 @@
+.video-player
+  = @post.embed_html.html_safe
+.details
+  .close
+    = button_tag 'Close'
+  .title
+    = @post.title
+  .shared-by
+    = "Shared by: #{@post.user.name} (#{@post.user.email})"
+  .description
+    %p Description:
+    = @post.description.html_safe
