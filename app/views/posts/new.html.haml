@@ -4,16 +4,27 @@
 .search-result
   .content
 
+.modal
+  .modal-content
+  .overlay
+
 :javascript
   var handleSuccess = (data) => {
     $(".search-result .content").append(data);
+
     $('.load-more').on('click', () => {
       var query = $('#search').val();
       var nextPageToken = $('.load-more').data('next-page-token');
 
       callSearchAPI(query, nextPageToken);
     })
-  }
+
+    $('.video').click( (e) => {
+      var videoId = $(e.currentTarget).data('video-id');
+      callGetPlayerAPI(videoId);
+    })
+  };
+
   var callSearchAPI = (query, nextPageToken) => {
     $.get(
       "#{search_path}?query=" + query + "&page_token=" + nextPageToken,
@@ -26,6 +37,18 @@
     ).fail( () => {
       alert('Search failed, please try again.')
     } )
+  };
+
+  var callGetPlayerAPI = (videoId) => {
+    $.get(
+      "#{get_player_path}?video_id=" + videoId,
+      (data, status) => {
+        if (status === 'success') {
+          $('.modal .modal-content').append(data);
+          $('.modal').show();
+        }
+      }
+    )
   }
 
   $(document).ready( () => {
@@ -35,5 +58,9 @@
         var query = $('#search').val();
         callSearchAPI(query, '');
       }
-    })
+    });
+    $('.modal .overlay').on('click', () => {
+      $('.modal').hide();
+      $('.modal .modal-content').empty();
+    });
   })

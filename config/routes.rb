@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#delete'
 
   get 'search' => 'youtube#search'
+  get 'get_player' => 'youtube#get_player'
 end

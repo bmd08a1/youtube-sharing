@@ -1,0 +1,9 @@
+.video-player
+  = @embed_html.html_safe
+.details
+  .title
+    = @details[:title]
+  .description
+    = @details[:description]
+  .action-button
+    = button_tag 'Share'

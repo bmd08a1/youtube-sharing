@@ -1,6 +1,6 @@
 .videos
   - @videos_data.each do |video|
-    .video
+    .video{ 'data-video-id' => video[:video_id] }
       .thumbnail
         = image_tag(video[:thumbnail_url])
       .details
