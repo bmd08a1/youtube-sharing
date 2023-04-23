@@ -3,6 +3,13 @@ a {
   color: black;
 }
 
+button {
+  border-radius: 4px;
+  background: white;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
 .content {
   padding: 0 50px;
 }
@@ -11,6 +18,12 @@ a {
   padding: 20px 50px;
   color: white;
   background: red;
+}
+
+.flash-success {
+  padding: 20px 50px;
+  color: white;
+  background: lightgreen;
 }
 
 .modal {
@@ -43,9 +56,19 @@ a {
       align-items: center;
       background: black;
     }
+
     .details {
-      padding: 20px;
+      padding: 10px 20px 20px 20px;
       background: white;
+      display: flex;
+      flex-direction: column;
+      overflow-wrap: break-word;
+      max-width: 400px;
+
+      .close {
+        margin-left: auto;
+        margin-bottom: 10px;
+      }
 
       .title {
         font-size: 20px;
@@ -57,6 +80,10 @@ a {
         overflow-y: auto;
         height: 400px;
         margin-bottom: 20px;
+      }
+
+      .action-button {
+        margin-top: auto;
       }
     }
   }

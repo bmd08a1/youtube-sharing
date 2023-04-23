@@ -1,9 +1,11 @@
 .video-player
   = @embed_html.html_safe
 .details
+  .close
+    = button_tag 'Close'
   .title
     = @details[:title]
   .description
     = @details[:description]
-  .action-button
+  #share.action-button{ 'data-video-id' => @video_id }
     = button_tag 'Share'

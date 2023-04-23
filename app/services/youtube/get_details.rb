@@ -1,16 +1,17 @@
 # frozen_string_literal: true
 
 module Youtube
-  class GetPlayer < ::BaseService
+  class GetDetails < ::BaseService
     ENDPOINT = 'https://www.googleapis.com/youtube/v3/videos'
     API_KEY = ENV['YOUTUBE_API_KEY']
     PLAYER = 'player'
     SNIPPET = 'snippet'
     MAX_WIDTH = 1000
 
-    def initialize(video_id:)
+    def initialize(video_id:, scopes:)
       super()
       @video_id = video_id
+      @scopes = scopes
       @data = {}
     end
 
@@ -23,10 +24,7 @@ module Youtube
         video_obj = response_body['items'][0]
 
         @data[:embed_html] = video_obj['player']['embedHtml']
-        @data[:details] = {
-          title: video_obj['snippet']['title'],
-          description: video_obj['snippet']['description']
-        }
+        @data[:details] = extract_data(video_obj['snippet'])
       else
         add_error(StandardError.new(response.body))
       end
@@ -37,13 +35,20 @@ module Youtube
     def build_url
       params = {
         key: API_KEY,
-        part: PLAYER,
-        'part' => SNIPPET,
         id: @video_id,
         maxWidth: MAX_WIDTH
       }
+      request_params = params.to_query + @scopes.map{ |scope| "&part=#{scope}" }.join('')
 
-      ENDPOINT + "?#{params.to_query}"
+      ENDPOINT + "?#{request_params}"
+    end
+
+    def extract_data(video_snippet)
+      {
+        title: video_snippet['title'],
+        description: video_snippet['description'],
+        thumbnail_url: video_snippet['thumbnails']['medium']['url'],
+      }
     end
   end
 end

@@ -5,8 +5,8 @@ RSpec.describe Post do
     subject { create(:post) }
 
     it { is_expected.to validate_presence_of :user_id }
-    it { is_expected.to validate_presence_of :link }
-    it { is_expected.to validate_uniqueness_of(:link).scoped_to(:user_id) }
+    it { is_expected.to validate_presence_of :video_id }
+    it { is_expected.to validate_uniqueness_of(:video_id).scoped_to(:user_id) }
     it { is_expected.to validate_presence_of :title }
   end
 

@@ -10,17 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_22_171947) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_23_100635) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "posts", force: :cascade do |t|
     t.bigint "user_id"
-    t.string "link", null: false
     t.text "description"
     t.string "title", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "video_id", null: false
+    t.string "thumbnail_url"
+    t.string "embed_html"
+    t.index ["user_id", "video_id"], name: "index_posts_on_user_id_and_video_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 

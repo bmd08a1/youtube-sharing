@@ -9,7 +9,7 @@
   .overlay
 
 :javascript
-  var handleSuccess = (data) => {
+  var handleSearchSuccess = (data) => {
     $(".search-result .content").append(data);
 
     $('.load-more').on('click', () => {
@@ -20,6 +20,8 @@
     })
 
     $('.video').click( (e) => {
+      e.stopPropagation();
+      e.preventDefault();
       var videoId = $(e.currentTarget).data('video-id');
       callGetPlayerAPI(videoId);
     })
@@ -31,7 +33,7 @@
       (data, status) => {
         if (status === 'success') {
           $('.load-more').remove();
-          handleSuccess(data);
+          handleSearchSuccess(data);
         }
       }
     ).fail( () => {
@@ -46,6 +48,26 @@
         if (status === 'success') {
           $('.modal .modal-content').append(data);
           $('.modal').show();
+
+          $('.modal #share').click( (e) => {
+            var videoId = $(e.currentTarget).data('video-id');
+            $.post(
+              "/posts",
+              { video_id: videoId, authenticity_token: "#{form_authenticity_token}" },
+              (data, status) => {
+                if (status === 'success') {
+                  window.location.href = '/'
+                }
+              }
+            )
+          }).fail( () => {
+            alert('Search failed, please try again.')
+          })
+
+          $('.modal .close').click( (e) => {
+            $('.modal').hide();
+            $('.modal .modal-content').empty();
+          })
         }
       }
     )
