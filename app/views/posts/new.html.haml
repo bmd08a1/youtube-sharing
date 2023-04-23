@@ -1,0 +1,39 @@
+.search-bar
+  .input
+    = text_field_tag 'search', nil, id: 'search', placeholder: 'Search a video'
+.search-result
+  .content
+
+:javascript
+  var handleSuccess = (data) => {
+    $(".search-result .content").append(data);
+    $('.load-more').on('click', () => {
+      var query = $('#search').val();
+      var nextPageToken = $('.load-more').data('next-page-token');
+
+      callSearchAPI(query, nextPageToken);
+    })
+  }
+  var callSearchAPI = (query, nextPageToken) => {
+    $.get(
+      "#{search_path}?query=" + query + "&page_token=" + nextPageToken,
+      (data, status) => {
+        if (status === 'success') {
+          $('.load-more').remove();
+          handleSuccess(data);
+        }
+      }
+    ).fail( () => {
+      alert('Search failed, please try again.')
+    } )
+  }
+
+  $(document).ready( () => {
+    $('#search').on('keyup', (e) => {
+      if (e.key === 'Enter' || e.keyCode === 13) {
+        $('.search-result .content').empty();
+        var query = $('#search').val();
+        callSearchAPI(query, '');
+      }
+    })
+  })
