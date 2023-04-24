@@ -1,6 +1,8 @@
 .search-bar
   .input
     = text_field_tag 'search', nil, id: 'search', placeholder: 'Search a video'
+  %button#search-button
+    Search
 .search-result
   .content
 
@@ -35,8 +37,7 @@
           $('.load-more').remove();
           handleSearchSuccess(data);
         }
-      },
-      'json'
+      }
     ).fail( (req, status) => {
       if (req.status === 401) {
         window.location.href = '/login'
@@ -87,6 +88,11 @@
         callSearchAPI(query, '');
       }
     });
+    $('#search-button').on('click', () => {
+      $('.search-result .content').empty();
+      var query = $('#search').val();
+      callSearchAPI(query, '');
+    })
     $('.modal .overlay').on('click', () => {
       $('.modal').hide();
       $('.modal .modal-content').empty();
