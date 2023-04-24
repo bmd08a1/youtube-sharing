@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :post do
     association :user
-    link { 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' }
+    video_id { 'asds' }
     title { 'Rick Roll' }
     description { 'Rick Roll' }
   end
