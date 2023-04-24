@@ -5,7 +5,12 @@ RSpec.describe 'User login', type: :feature do
     let!(:user) { create(:user, name: 'dung', email: 'test@gmail.com') }
 
     it 'logs user in and redirect to posts page' do
-      visit login_path
+      visit root_path
+      within('.header') do
+        expect(page).to have_content("Log in")
+        click_link 'Log in'
+      end
+
       fill_in 'session_email', with: 'test@gmail.com'
       fill_in 'session_password', with: 'password'
 
