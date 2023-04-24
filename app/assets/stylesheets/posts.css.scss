@@ -17,28 +17,26 @@
 .search-result, .posts-container {
   border-top: 1px solid black;
 
-  .content {
+  .videos {
     padding: 0;
 
-    .videos {
-      .video {
-        cursor: pointer;
-        display: flex;
-        margin-top: 16px;
+    .video {
+      cursor: pointer;
+      display: flex;
+      margin-top: 16px;
 
-        .thumbnail {
-          margin-right: 16px;
+      .thumbnail {
+        margin-right: 16px;
+      }
+
+      .details {
+        .title {
+          font-size: 20px;
+          font-weight: bold;
         }
 
-        .details {
-          .title {
-            font-size: 20px;
-            font-weight: bold;
-          }
-
-          .description {
-            margin-top: 8px;
-          }
+        .description {
+          margin-top: 8px;
         }
       }
     }

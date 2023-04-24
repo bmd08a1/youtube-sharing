@@ -16,10 +16,7 @@ class YoutubeController < ApplicationController
   end
 
   def get_player
-    service = Youtube::GetDetails.new(
-      video_id: params[:video_id],
-      scopes: [Youtube::GetDetails::SNIPPET, Youtube::GetDetails::PLAYER]
-    )
+    service = Youtube::GetDetails.new(video_id: params[:video_id])
     service.call
 
     if service.success?

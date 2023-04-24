@@ -1,5 +1,5 @@
 .posts-container
-  .content
+  .videos
 
 .modal.post-details
   .modal-content
@@ -11,7 +11,7 @@
       "#{filter_posts_path}?page=" + currentPage,
       (data, status) => {
         if (status === 'success') {
-          $('.posts-container .content').append(data);
+          $('.posts-container .videos').append(data);
 
           $('.load-more').click( (e) => {
             $('.load-more').remove();

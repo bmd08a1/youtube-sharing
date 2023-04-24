@@ -1,12 +1,11 @@
-.videos
-  - @videos_data.each do |video|
-    .video{ 'data-video-id' => video[:video_id] }
-      .thumbnail
-        = image_tag(video[:thumbnail_url])
-      .details
-        .title
-          = video[:title].html_safe
-        .description
-          = video[:description].html_safe
+- @videos_data.each do |video|
+  .video{ 'data-video-id' => video[:video_id] }
+    .thumbnail
+      = image_tag(video[:thumbnail_url])
+    .details
+      .title
+        = video[:title].html_safe
+      .description
+        = video[:description].html_safe
 .load-more{ "data-next-page-token" => "#{@next_page_token}" }
   Load More
