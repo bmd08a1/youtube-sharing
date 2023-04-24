@@ -1,24 +1,8 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Youtube sharing webapp
+The webapp is hosted here: https://funny-movies-mapmap.herokuapp.com/posts
+# Features
+* User sign up
+* User login/logout
+* Logged in users can share Youtube videos
+* Search Youtube videos and preview
+* Visitors (no login required) can view all shared videos
