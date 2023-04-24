@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :require_login!, only: [:new, :create]
+
   PAGE_LIMIT = 10
   DEFAULT_PAGE = 0
 

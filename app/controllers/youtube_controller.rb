@@ -1,4 +1,6 @@
 class YoutubeController < ApplicationController
+  before_action :require_login!, only: [:search]
+
   def search
     service = Youtube::Search.new(query: params[:query], page_token: params[:page_token])
     service.call

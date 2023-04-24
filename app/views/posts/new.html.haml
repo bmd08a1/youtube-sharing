@@ -35,9 +35,14 @@
           $('.load-more').remove();
           handleSearchSuccess(data);
         }
+      },
+      'json'
+    ).fail( (req, status) => {
+      if (req.status === 401) {
+        window.location.href = '/login'
+      } else {
+        alert('Search failed, please try again.');
       }
-    ).fail( () => {
-      alert('Search failed, please try again.')
     } )
   };
 
@@ -58,7 +63,8 @@
                 if (status === 'success') {
                   window.location.href = '/'
                 }
-              }
+              },
+              'json'
             ).fail( () => {
               alert('Search failed, please try again.')
             })
