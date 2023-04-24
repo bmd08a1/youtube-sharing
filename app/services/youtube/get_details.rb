@@ -2,16 +2,17 @@
 
 module Youtube
   class GetDetails < ::BaseService
-    ENDPOINT = 'https://www.googleapis.com/youtube/v3/videos'
+    ENDPOINT = 'https://youtube.googleapis.com/youtube/v3/videos'
     API_KEY = ENV['YOUTUBE_API_KEY']
-    PLAYER = 'player'
-    SNIPPET = 'snippet'
+    SCOPES = [
+      PLAYER = 'player',
+      SNIPPET = 'snippet'
+    ].freeze
     MAX_WIDTH = 1000
 
-    def initialize(video_id:, scopes:)
+    def initialize(video_id:)
       super()
       @video_id = video_id
-      @scopes = scopes
       @data = {}
     end
 
@@ -38,7 +39,7 @@ module Youtube
         id: @video_id,
         maxWidth: MAX_WIDTH
       }
-      request_params = params.to_query + @scopes.map{ |scope| "&part=#{scope}" }.join('')
+      request_params = params.to_query + SCOPES.map{ |scope| "&part=#{scope}" }.join('')
 
       ENDPOINT + "?#{request_params}"
     end

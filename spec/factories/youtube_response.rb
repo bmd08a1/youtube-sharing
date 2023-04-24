@@ -368,6 +368,94 @@ FactoryBot.define do
       }
     end
 
+    trait :get_details do
+      body {
+        {
+          "kind": "youtube#videoListResponse",
+          "etag": "6tvkZdRYkN_8dZ9lJDMYByKqHxQ",
+          "items": [
+            {
+              "kind": "youtube#video",
+              "etag": "tNwfD09aI2xyheL50BoNlE5WZZU",
+              "id": "xxM1kfj4nq8",
+              "snippet": {
+                "publishedAt": "2023-01-07T12:30:31Z",
+                "channelId": "UCTK7WTCGzHfBZ9CX8Ut_YxA",
+                "title": "CÔ ĐƠN TRÊN SOFA | Hồ Ngọc Hà x Tăng Duy Tân | Trung Quân live cover at #souloftheforest",
+                "description": "#TheBROS #SoulofTheForest #FlamingoDaiLai #acoustic #cover #coversong #coversongs #trungquan\n\n*Cô Đơn Trên Sofa\nSáng tác: Tăng Duy Tân\nThể hiện: @TrungQuanSinger \n- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - \n𝑺𝑶𝑼𝑳 𝑶𝑭 𝑻𝑯𝑬 𝑭𝑶𝑹𝑬𝑺𝑻 • Đ𝒆̂𝒎 𝒏𝒉𝒂̣𝒄 𝒈𝒊𝒖̛̃𝒂 𝒓𝒖̛̀𝒏𝒈 𝒕𝒉𝒐̂𝒏𝒈\n🌲 Đặt vé: thebros.vn\n☎️ Hotline: 086 810 9393 | 098 600 9393\n📍Flamingo Dai Lai Resort, Dai Quang, Ngoc Thanh, Phuc Yen Town. \n——————————————\nAbout us:\nFacebook  ►fb.com/souloftheforest.thebros\nTiktok        ► tiktok.com/@souloftheforest.thebros\nInstagram ► instagram.com/souloftheforest.thebros/\nYoutube    ► youtube.com/channel/UCTK7WTCGzHfBZ9CX8Ut_YxA\n\nMọi chi tiết về bản quyền vui lòng liên hệ: media@thebros.vn\n© Bản quyền thuộc về Soul of The Forest",
+                "thumbnails": {
+                  "default": {
+                    "url": "https://i.ytimg.com/vi/xxM1kfj4nq8/default.jpg",
+                    "width": 120,
+                    "height": 90
+                  },
+                  "medium": {
+                    "url": "https://i.ytimg.com/vi/xxM1kfj4nq8/mqdefault.jpg",
+                    "width": 320,
+                    "height": 180
+                  },
+                  "high": {
+                    "url": "https://i.ytimg.com/vi/xxM1kfj4nq8/hqdefault.jpg",
+                    "width": 480,
+                    "height": 360
+                  },
+                  "standard": {
+                    "url": "https://i.ytimg.com/vi/xxM1kfj4nq8/sddefault.jpg",
+                    "width": 640,
+                    "height": 480
+                  },
+                  "maxres": {
+                    "url": "https://i.ytimg.com/vi/xxM1kfj4nq8/maxresdefault.jpg",
+                    "width": 1280,
+                    "height": 720
+                  }
+                },
+                "channelTitle": "Soul of The Forest",
+                "tags": [
+                  "soul of the forest",
+                  "soul of the forest full",
+                  "souloftheforest",
+                  "cô đơn trên sofa trung quân",
+                  "co don tren sofa trung quan",
+                  "trung quan co don tren sofa",
+                  "trung quân cô đơn trên sofa",
+                  "bướm mặt trăng",
+                  "cô đơn trên sofa",
+                  "hồ ngọc hà cô đơn trên sofa",
+                  "karaoke cô đơn trên sofa",
+                  "co don tren sofa",
+                  "cô đơn trên sofa karaoke tone nữ",
+                  "co don tren sofa lyric",
+                  "co don tren sofa karaoke",
+                  "buom mat trang trung quan idol",
+                  "tăng duy tân cô đơn trên sofa",
+                  "tang duy tan",
+                  "tang duy tan co don tren sofa"
+                ],
+                "categoryId": "10",
+                "liveBroadcastContent": "none",
+                "defaultLanguage": "vi",
+                "localized": {
+                  "title": "CÔ ĐƠN TRÊN SOFA | Hồ Ngọc Hà x Tăng Duy Tân | Trung Quân live cover at #souloftheforest",
+                  "description": "#TheBROS #SoulofTheForest #FlamingoDaiLai #acoustic #cover #coversong #coversongs #trungquan\n\n*Cô Đơn Trên Sofa\nSáng tác: Tăng Duy Tân\nThể hiện: @TrungQuanSinger \n- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - \n𝑺𝑶𝑼𝑳 𝑶𝑭 𝑻𝑯𝑬 𝑭𝑶𝑹𝑬𝑺𝑻 • Đ𝒆̂𝒎 𝒏𝒉𝒂̣𝒄 𝒈𝒊𝒖̛̃𝒂 𝒓𝒖̛̀𝒏𝒈 𝒕𝒉𝒐̂𝒏𝒈\n🌲 Đặt vé: thebros.vn\n☎️ Hotline: 086 810 9393 | 098 600 9393\n📍Flamingo Dai Lai Resort, Dai Quang, Ngoc Thanh, Phuc Yen Town. \n——————————————\nAbout us:\nFacebook  ►fb.com/souloftheforest.thebros\nTiktok        ► tiktok.com/@souloftheforest.thebros\nInstagram ► instagram.com/souloftheforest.thebros/\nYoutube    ► youtube.com/channel/UCTK7WTCGzHfBZ9CX8Ut_YxA\n\nMọi chi tiết về bản quyền vui lòng liên hệ: media@thebros.vn\n© Bản quyền thuộc về Soul of The Forest"
+                },
+                "defaultAudioLanguage": "vi"
+              },
+              "player": {
+                "embedHtml": "\u003ciframe width=\"1000\" height=\"563\" src=\"https://www.youtube.com/embed/xxM1kfj4nq8\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen\u003e\u003c/iframe\u003e",
+                "embedHeight": "563",
+                "embedWidth": "1000"
+              }
+            }
+          ],
+          "pageInfo": {
+            "totalResults": 1,
+            "resultsPerPage": 1
+          }
+        }.to_json
+      }
+    end
+
     initialize_with { new(attributes) }
   end
 end
